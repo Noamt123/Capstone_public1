@@ -1,6 +1,11 @@
 pipeline {
   agent any
   stages {
+    stage('hi') {
+      steps {
+        echo 'hello world'
+      }
+    }
     stage('Credentials') {
       steps {
         withCredentials(bindings: [[$class:  'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'bear1', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
@@ -12,8 +17,10 @@ pipeline {
                                                                  echo "aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" >>~/.boto
                                                                  echo "aws_access_key_id = ${AWS_ACCESS_KEY_ID}" >>~/.aws/credentials
                                                                  echo "aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" >>~/.aws/credentials
-        }                                                  """
+                                                          """
+        }
+
       }
-    } 
+    }
   }
 }
