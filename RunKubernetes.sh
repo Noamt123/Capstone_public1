@@ -8,7 +8,7 @@ dockerpath=beartuchman/capstone
 
 # Step 2
 # Run the Docker Hub container with kubernetes
-kubectl run bear --image=${dockerpath}:newest --port=5000
+kubectl run bear --image=${dockerpath}:newester --port=5000
 
 # Step 3:
 # List kubernetes pods

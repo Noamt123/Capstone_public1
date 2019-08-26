@@ -1,5 +1,5 @@
 dockerpath=beartuchman/capstone
 
-docker tag capstone ${dockerpath}:newest
+docker tag capstone ${dockerpath}:newester
 
-docker push ${dockerpath}:newest
+docker push ${dockerpath}:newester
