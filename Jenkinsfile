@@ -18,13 +18,6 @@ pipeline {
                                           '''
       }
     } 
-    stage('Lint app.py, Dockerfile and install dependencies') {
-      steps {
-        sh '''
-                          make all
-                '''
-      }
-    }
     stage('Credentials') {
       steps {
         withCredentials(bindings: [[$class:  'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'bear1', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
