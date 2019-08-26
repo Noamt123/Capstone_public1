@@ -6,10 +6,15 @@ pipeline {
         echo 'hello world'
       }
     }
-    stage('Lint index.html') {
+    stage('Lint html') {
       steps {
         sh '''
                                                tidy -q -e templates/index.html
+                                               tidy -q -e templates/addition.html
+                                               tidy -q -e templates/sub.html
+                                               tidy -q -e templates/mult.html
+                                               tidy -q -e templates/div.html
+                                               tidy -q -e templates/exp.html
                                           '''
       }
     } 
