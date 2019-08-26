@@ -9,7 +9,7 @@ pipeline {
     stage('Lint index.html') {
       steps {
         sh '''
-                                               tidy -q -e index.html
+                                               tidy -q -e templates/index.html
                                           '''
       }
     } 
