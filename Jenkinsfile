@@ -21,7 +21,6 @@ pipeline {
     stage('Lint app.py, Dockerfile and install dependencies') {
       steps {
         sh '''
-                          make install
                           make all
                 '''
       }
