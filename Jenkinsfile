@@ -36,8 +36,7 @@ pipeline {
     }
     stage('docker login') {
       steps {
-        sh '''cat password.txt | docker login --username beartuchman --password-stdin 
-                 '''
+        sh 'cat password.txt | docker login --username beartuchman --password-stdin'
       }
     }
     stage('push docker') {
