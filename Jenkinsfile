@@ -36,7 +36,10 @@ pipeline {
     }
     stage('docker login') {
       steps {
-        sh 'cat password.txt | docker login --username beartuchman --password-stdin'
+        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]) {
+          sh  ''' docker login --username beartuchman --password-stdin 
+                 '''
+        }
       }
     }
     stage('push docker') {
