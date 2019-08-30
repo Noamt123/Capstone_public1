@@ -6,7 +6,7 @@ pipeline {
         echo 'hello world'
       }
     }
-    stage('Lint html') {
+    stage('Lint  html') {
       steps {
         sh '''
                                                tidy -q -e templates/index.html
