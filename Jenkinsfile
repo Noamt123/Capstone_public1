@@ -29,14 +29,14 @@ pipeline {
                echo "aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" >>~/.boto
                echo "aws_access_key_id = ${AWS_ACCESS_KEY_ID}" >>~/.aws/credentials
                echo "aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" >>~/.aws/credentials
-                 """                                                   
+                 """
         }
 
       }
     }
     stage('docker login') {
       steps {
-        sh 'sudo docker login --username beartuchman --password BearBarky1'
+        sh 'cat password.txt | docker login --username beartuchman --password-stdin'
       }
     }
     stage('push docker') {
@@ -48,16 +48,6 @@ pipeline {
       steps {
         sh '''eksctl create cluster --region us-east-2 --name prod --nodegroup-name standard-workers --node-type t2.micro
 '''
-      }
-    }
-    stage('kubectl') {
-      steps {
-        sh 'kubectl get pods'
-      }
-    }
-    stage('bye') {
-      steps {
-        echo 'bye'
       }
     }
   }
